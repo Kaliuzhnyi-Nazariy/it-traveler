@@ -29,7 +29,7 @@ const inputStyles = computed(() => {
 })
 
 const componentName = computed(() => {
-  return isTextarea.value ? 'textare' : 'input'
+  return isTextarea.value ? 'textarea' : 'input'
 })
 </script>
 
