@@ -5,6 +5,7 @@ import MarkerIcon from '../Icons/MarkerIcon.vue'
 import IInput from '../IImput/IInput.vue'
 import IModal from '../IModal/IModal.vue'
 import InputImage from '../InputImage/InputImage.vue'
+import { onMounted } from 'vue'
 
 const props = defineProps({
   isOpen: {
@@ -28,6 +29,10 @@ const uploadText = computed(() => {
 const handleURL = (url) => {
   formData.img = url
 }
+
+onMounted(() => {
+  console.log('view is mounted')
+})
 </script>
 
 <template>

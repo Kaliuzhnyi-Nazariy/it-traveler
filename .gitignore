@@ -30,3 +30,4 @@ coverage
 *.tsbuildinfo
 
 secret
+/src/map/token.js
