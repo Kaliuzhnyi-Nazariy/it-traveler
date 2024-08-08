@@ -10,7 +10,11 @@ const props = defineProps({
       return ['primary', 'gradient', 'outlined'].includes(value)
     }
   },
-  to: String
+  to: String,
+  isLoading: {
+    default: false,
+    type: Boolean
+  }
 })
 
 const bgStyles = computed(() => {
@@ -38,6 +42,9 @@ const link = computed(() => {
     :to="link"
   >
     <!-- <div v-if="$slots.default">It's default</div> -->
-    <slot>Click me!</slot>
+    <template v-if="props.isLoading"> Loading... </template>
+    <template v-else>
+      <slot></slot>
+    </template>
   </component>
 </template>
