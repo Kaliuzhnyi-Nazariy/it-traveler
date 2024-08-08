@@ -3,8 +3,14 @@ import FavoritePlace from '../FavoritePlace/FavoritePlace.vue'
 import IButton from '../IButton/IButton.vue'
 
 const prop = defineProps({
-  items: { required: true, type: Array }
+  items: { required: true, type: Array },
+  activeId: {
+    required: true,
+    type: [Number, null]
+  }
 })
+
+const emit = defineEmits(['place-clicked'])
 </script>
 
 <template>
@@ -16,6 +22,8 @@ const prop = defineProps({
       :title="place.title"
       :description="place.description"
       :img="place.img"
+      :is-active="place.id === prop.activeId"
+      @click="emit('place-clicked', place.id)"
     />
     <IButton class="w-full mt-10" variant="gradient">Add mark</IButton>
   </div>
