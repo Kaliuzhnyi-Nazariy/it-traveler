@@ -13,7 +13,7 @@ const props = defineProps({
 })
 
 const userData = reactive({
-  name: '',
+  username: '',
   email: '',
   password: ''
 })
@@ -21,7 +21,7 @@ const userData = reactive({
 
 <template>
   <form @submit.prevent="emit('submit', toRaw(userData))">
-    <IInput class="mb-4" label="Full name" v-model="userData.name" />
+    <IInput class="mb-4" label="Full name" v-model="userData.username" />
     <IInput class="mb-4" label="Email" placeholder="email@email.com" v-model="userData.email" />
     <IInput label="Password" type="password" v-model="userData.password" />
     <IButton variant="gradient" class="w-full mt-10" type="submit" :is-loading="props.isLoading">
