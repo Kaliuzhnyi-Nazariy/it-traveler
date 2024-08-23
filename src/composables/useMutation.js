@@ -9,13 +9,13 @@ export const useMutatuion = ({ mutationFn, onSuccess, onError }) => {
     isLoading.value = true
     try {
       error.value = null
-      //   data.value = await mutationFn(...args)
+      data.value = await mutationFn(...args)
       onSuccess?.(data)
     } catch (e) {
       error.value = e
       onError?.(error)
     } finally {
-      isLoading.value = true
+      isLoading.value = false
     }
   }
 
