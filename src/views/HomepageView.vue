@@ -11,6 +11,8 @@ import { addFavoritePlaces, getFavoritePlaces } from '@/api/favorite-places'
 import { useModal } from '@/composables/useModal'
 import CreateNewPlaceModal from '@/components/CreateNewPlaceModal/CreateNewPlaceModal.vue'
 import { useMutatuion } from '@/composables/useMutation'
+import LogoutButton from '@/components/LogoutButton/LogoutButton.vue'
+import UserInfo from '@/components/UserInfo/UserInfo.vue'
 
 const { isModalOpen, closeModal, openModal } = useModal()
 
@@ -91,7 +93,8 @@ const changePlace = (id) => {
 
 <template>
   <main class="flex h-screen">
-    <div class="bg-white h-full w-[400px] shrink-0 overflow-auto pb-10">
+    <div class="relative bg-white h-full w-[400px] shrink-0 overflow-auto pb-10">
+      <UserInfo />
       <div v-if="isGettingPlaces" class="text-black px-6">Loading...</div>
       <FavoritePlaces
         :items="favoritePlaces"
@@ -101,6 +104,9 @@ const changePlace = (id) => {
         @create="openModal"
         @updated="getPlaces"
       />
+
+      <LogoutButton class="mt-10" />
+
       <CreateNewPlaceModal
         :is-loading="isAddingPlace"
         :is-open="isModalOpen"
