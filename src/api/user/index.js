@@ -9,9 +9,9 @@ export const register = (body) => {
 }
 
 export const logout = () => {
-  return clientFetch.get('users/logout')
+  return clientFetch.post('users/logout')
 }
 
 export const refresh = () => {
-  return clientFetch.get('users/refresh')
+  return clientFetch.get('users/me')
 }
