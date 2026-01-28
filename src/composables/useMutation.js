@@ -12,7 +12,7 @@ export const useMutatuion = ({ mutationFn, onSuccess, onError }) => {
       data.value = await mutationFn(...args)
       onSuccess?.(data)
     } catch (e) {
-      error.value = e
+      error.value = e.response.data || e
       onError?.(error)
     } finally {
       isLoading.value = false
