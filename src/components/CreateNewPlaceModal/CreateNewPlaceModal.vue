@@ -17,8 +17,7 @@ const props = defineProps({
     type: Boolean
   },
   error: {
-    type: Boolean,
-    default: false
+    type: { message: String }
   }
 })
 
@@ -60,7 +59,8 @@ const resetForm = () => {
         <InputImage @uploaded="handleURL">{{ uploadText }}</InputImage>
       </div>
       <IButton variant="gradient" class="w-full" :is-loading="props.isLoading">Add</IButton>
-      <div class="text-red-500" v-if="props.error">Something went wrong!</div>
+      <!-- <div class="text-red-500" v-if="props.error">Something went wrong!</div> -->
+      <div class="text-red-500" v-if="props.error">{{ props.error.message }}</div>
     </form>
   </IModal>
 </template>
